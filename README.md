@@ -21,7 +21,7 @@ The lab environment consists of:
         | (Web Server)    |      | (Database Server)|      |   (Monitoring)  |
         |                 |      |                  |      |                 |
         | +-------------+ |      | +-------------+  |      | +-------------+ |
-        | |   Nginx       | |    | |    MySQL    |  |      | | Prometheus  | |
+        | |   Nginx     | |      | |    MySQL    |  |      | | Prometheus  | |
         | | (Web App)   | |      | |    (DB)     |  |      | | (Grafana)   | |
         | +-------------+ |      | +-------------+  |      | +-------------+ |
         +-----------------+      +------------------+      +-----------------+
@@ -36,6 +36,12 @@ The lab environment consists of:
 
 ```
 ## Project Structure
+The ansible-lab project is organized to make managing server configurations easy and efficient. Here’s a quick overview:
+- **inventory.ini**: Lists your servers and their groupings (e.g., web, db, monitoring). Ansible uses this to know which servers to manage.
+- **site.yml:** The main playbook that applies configurations to your servers. It uses roles to define what needs to be done on each group of servers.
+- **roles/:** Contains folders for each type of server (web, db, monitoring). Each folder has:
+    - **tasks/:** Files that describe the actions to perform on the servers.
+    - **handlers/:** Files that define actions like restarting services, triggered by tasks.
 ```css
 ansible-lab/
   ├── inventory.ini
