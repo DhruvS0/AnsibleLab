@@ -307,3 +307,35 @@ To execute the playbook and apply configurations to your servers, use the follow
 ```sh
 ansible-playbook -i inventory.ini site.yml --ask-pass --ask-become-pass
 ```
+![alt text](media/playbook-run.png)
+![alt text](media/playbook-run1.png)
+## Testing the configuration on the servers
+### Testing Installation of MySQL on Database Server
+To verify the installation of MySQL on the database server, use the following commands and check the status:
+- Check MySQL Status
+```sh
+sudo systemctl status mysql
+```
+- Verify Installation:
+```sh
+mysql --version
+```
+![alt text](media/mysql-status.png)
+### Testing Installation of Prometheus and Grafana on Monitoring Server
+To ensure that Prometheus and Grafana are correctly installed on the monitoring server, perform the following checks:
+![alt text](media/ssh-monitoring.png)
+
+- Check Prometheus Status and Verify Installation:
+```sh
+sudo systemctl status prometheus
+prometheus --version
+```
+![alt text](media/prometheus-status.png)
+- Check Grafana Status and Verify Installation:
+```sh
+sudo systemctl status grafana-server
+grafana-server --version
+```
+![alt text](media/grafana-status.png)
+
+
